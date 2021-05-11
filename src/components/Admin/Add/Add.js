@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import SideNav from '../SideNav/SideNav';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 const Add = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
@@ -63,7 +65,11 @@ const Add = () => {
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" className="btn btn-primary">Add Book</button>
+                        <div className="text-end">
+                            <button type="submit" className="btn btn-primary">
+                                <FontAwesomeIcon icon={faPlus} /> Add Book
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>

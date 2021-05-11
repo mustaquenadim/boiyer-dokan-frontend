@@ -6,7 +6,7 @@ const Edit = () => {
         <div className='row'>
             <SideNav />
             <div className="col-lg-9">
-                <h1>Edit</h1>
+                <h1>Edit Component is under construction.</h1>
             </div>
         </div>
     );

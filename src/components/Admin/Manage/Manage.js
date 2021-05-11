@@ -24,7 +24,7 @@ const Manage = () => {
                 <div className='container py-3'>
                     <table className='table table-hover'>
                         <thead>
-                            <tr className='table-info'>
+                            <tr>
                                 <th scope='col'>Sl. No.</th>
                                 <th scope='col'>Book Name</th>
                                 <th scope='col'>Author Name</th>
@@ -33,18 +33,18 @@ const Manage = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {books.map((book, index) => (
-                                <tr>
-                                    <th scope='row'>{index + 1}</th>
-                                    <th>{book.bookName}</th>
-                                    <td>{book.bookAuthor}</td>
-                                    <td>${book.bookPrice}</td>
-                                    <td className="d-flex">
-                                        <button className='btn btn-warning mx-1'><FontAwesomeIcon icon={faEdit} /></button>
-                                        <button className='btn btn-danger mx-1' onClick={() => handleDeleteBook(book._id)}><FontAwesomeIcon icon={faTrashAlt} /></button>
-                                    </td>
-                                </tr>
-                            ))}
+                        {books.map((book, index) => (
+                            <tr>
+                                <th scope='row'>{index + 1}</th>
+                                <th>{book.bookName}</th>
+                                <td>{book.bookAuthor}</td>
+                                <td>${book.bookPrice}</td>
+                                <td className="d-flex">
+                                    <button className='btn btn-warning mx-1'><FontAwesomeIcon icon={faEdit} /></button>
+                                    <button className='btn btn-danger mx-1' onClick={() => handleDeleteBook(book._id)}><FontAwesomeIcon icon={faTrashAlt} /></button>
+                                </td>
+                            </tr>
+                        ))}
                         </tbody>
                     </table>
                 </div>

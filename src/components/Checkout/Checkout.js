@@ -1,8 +1,10 @@
-import moment from 'moment';
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { UserContext } from '../../App';
 import Header from '../Header/Header';
+import moment from 'moment';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 
 const Deals = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
@@ -59,7 +61,11 @@ const Deals = () => {
                         </div>
                     </div>
                 </div>
-                <button className='btn btn-primary' onClick={handleOrder}>Order</button>
+                <div className="text-end">
+                    <button className='btn btn-primary' onClick={handleOrder}>
+                        <FontAwesomeIcon icon={faCartPlus} /> Place Order
+                    </button>
+                </div>
             </div>
         </div>
     );

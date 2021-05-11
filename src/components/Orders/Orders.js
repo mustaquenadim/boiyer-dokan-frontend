@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../App';
+import Header from '../Header/Header';
 
 const Orders = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
@@ -10,29 +11,24 @@ const Orders = () => {
             .then(data => setOrders(data));
     }, [loggedInUser.email]);
     return (
-        <div className='container'>
-            <h1>Orders ({orders.length})</h1>
-            <div>
-                <h4>Name: {loggedInUser.username}</h4>
-                <h5>Email: {loggedInUser.email}</h5>
-            </div>
-            <table className='table table-bordered table-hover'>
-                <thead>
-                    <tr className='text-center table-info'>
-                        <th scope='col'>Book Name</th>
-                        <th scope='col'>Author Name</th>
-                        <th scope='col'>Price</th>
-                        <th>Order Time</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {orders.length === 0 && (
-                        <div className='d-flex justify-content-center'>
-                            <div className='spinner-border' role='status'>
-                                <span className='sr-only'>Loading...</span>
-                            </div>
-                        </div>
-                    )}
+        <div>
+            <Header />
+            <div className='container'>
+                <h1>Orders ({orders.length})</h1>
+                <div>
+                    <h4>Name: {loggedInUser.name}</h4>
+                    <h5>Email: {loggedInUser.email}</h5>
+                </div>
+                <table class="table table-hover text-center">
+                    <thead>
+                        <tr>
+                            <th scope='col'>Book</th>
+                            <th scope='col'>Author</th>
+                            <th scope='col'>Price</th>
+                            <th scope='col'>Order Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
                     {orders.map((order) => (
                         <tr>
                             <th scope='row'>{order.bookName}</th>
@@ -41,8 +37,16 @@ const Orders = () => {
                             <td>{order.dateTime}</td>
                         </tr>
                     ))}
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+                {orders.length === 0 && (
+                    <div className='d-flex justify-content-center'>
+                        <div className='spinner-border' role='status'>
+                            <span className='sr-only'>Loading...</span>
+                        </div>
+                    </div>
+                )}
+            </div>
         </div>
     );
 };
